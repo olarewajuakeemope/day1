@@ -1,0 +1,23 @@
+{
+  "name": "day1",
+  "version": "1.0.0",
+  "description": "day1 repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olarewajuakeemope/day1.git"
+  },
+  "author": "Olarewaju Opeyemi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olarewajuakeemope/day1/issues"
+  },
+  "homepage": "https://github.com/olarewajuakeemope/day1#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
