@@ -1,61 +1,34 @@
 (function(){
   'use strict';
-  var Car = require('../app/library.js').Car;
-  describe("Car Class: Create a car, make it drive", function() {
+  var Person = require('../app/library.js').Person;
+
+  describe("Person Class: Create a Person instance", function() {
 
     it("The car should be a type of `object`, and an instance of the `Car` class", function() {
-      var honda = new Car('Honda');
-      expect(typeof honda).toEqual(typeof {});
-      expect(honda instanceof Car).toBeTruthy();
+      var linda = new Person('Linda');
+      expect(typeof linda).toEqual(typeof {});
+      expect(linda instanceof Person).toBeTruthy();
     });
 
-    it("The car should be called 'General' if no name is passed as a parameter", function() {
-      var gm = new Car();
-      expect(gm.name).toEqual('General');
-      expect(gm.model).toBe('GM');
+    it("The person should have a 'non provided' address and country if no cointry or address is passed as parameters", function() {
+      var gm = new Person();
+      expect(gm.address).toEqual('non provided');
+      expect(gm.country).toBe('non provided');
     });
 
-    it("The car name and model should be a property of the car", function() {
-      var toyota  = new Car('Toyota', 'Corolla');
-      expect(toyota.name).toBe('Toyota');
-      expect(toyota.model).toBe('Corolla');
+    it("The person age should be a property of the person", function() {
+      var ope  = new Person('opeyemi', 25);
+      expect(ope.age).toBe(25);
     });
 
-    it("The car shoud have four (4) doors except its a Porshe or Koenigsegg", function() {
-      var opel  = new Car('Opel', 'Omega 3');
-      expect(opel.numOfDoors).toBe(4);
-
-      var porshe = new Car('Porshe', '911 Turbo');
-      expect(porshe.numOfDoors).toBe(2);
-      porshe.drive(5);
-      expect(porshe.speed).toBe('250 km/h');
-      expect((function(){return new Car('Koenigsegg', 'Agera R');}()).numOfDoors).toBe(2);
+    it("The person should have a an info property", function() {
+      var akin  = new Person("akin", 32, "Nigeria", "Lekki", "08053143456");
+      expect(akin.info()).toBe('Member name is akin, age: 32, phone number is 08053143456 lives in Nigeria with address Lekki');
     });
 
-    it("The car shoud have four (4) wheels except its a type of trailer", function() {
-      var man  = new Car('MAN', 'Truck', 'trailer');
-      expect(man.numOfWheels).toBe(8);
-      expect(man.isSaloon).toBe(false);
-
-      var koenigsegg = new Car('Koenigsegg', 'Agera R');
-      expect(koenigsegg.numOfWheels).toBe(4);
-      expect(koenigsegg.isSaloon).toBeTruthy();
+    it("The Person class should have a change name property", function() {
+      var tola  = new Person('Tola', 23, 'US');
+      expect(tola.changeName="kemi").toBe("kemi");
     });
-
-    it("The Trailer should have speed 0 km/h until you put `the pedal to the metal`", function() {
-      var man  = new Car('MAN', 'Truck', 'trailer');
-      expect(man.speed).toBe('0 km/h');
-      man.drive(7);
-      expect(man.speed).toBe('77 km/h');
-    });
-
-    it("The car drive function should return the instance of the Car class", function() {
-      var man  = new Car('MAN', 'Truck', 'trailer');
-      var drivingMan = man.drive(7);
-      expect(drivingMan instanceof Car).toBeTruthy();
-      expect(typeof drivingMan.drive).toBe(typeof (function (){}));
-      expect(man.speed).toBe(drivingMan.speed);
-    });
-
   });
 })();
